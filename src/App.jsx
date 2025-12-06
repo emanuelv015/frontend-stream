@@ -199,7 +199,7 @@ function App() {
           <img src="/pitch.jpg" alt="" />
         </div>
         <div className="hero-content">
-          <div className="hero-badge">{sport === 'Football' ? 'UEFA • EUROPE' : 'WORLDWIDE'}</div>
+          <div className="hero-badge">{sport === 'Football' ? 'EUROPE MATCHES' : 'WORLDWIDE'}</div>
           <h1 className="hero-title">
             {sport === 'Football' ? (
               <>MATCHES<br/><span>LIVE</span></>
@@ -208,7 +208,7 @@ function App() {
             )}
           </h1>
           <p className="hero-sub">
-            Free streaming • Multiple channels • No ads
+            Free streaming • Multiple channels •  
           </p>
           <div className="hero-stats">
             <div className="stat">
