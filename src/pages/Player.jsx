@@ -6,10 +6,10 @@ function Player() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const [interactionEnabled, setInteractionEnabled] = useState(false)
-  
+
   // Get the stream URL from query params
   const streamUrl = searchParams.get('url') || ''
-  
+
   // Extract channel name from URL for display
   const getChannelName = (url) => {
     try {
@@ -20,7 +20,7 @@ function Player() {
       return 'Live Stream'
     }
   }
-  
+
   const channelName = getChannelName(streamUrl)
 
   if (!streamUrl) {
@@ -71,24 +71,12 @@ function Player() {
           </span>
         </div>
       </div>
-      
-      <div className="stream-url-bar">
-        <span className="url-label">STREAM URL:</span>
-        <input 
-          type="text" 
-          value={streamUrl} 
-          readOnly 
-          className="url-input"
-          onClick={(e) => e.target.select()}
-        />
-        <button 
-          className="copy-btn"
-          onClick={() => navigator.clipboard.writeText(streamUrl)}
-        >
-          COPY
-        </button>
+
+      <div className="adblock-notice">
+        <span className="adblock-icon"></span>
+        <span className="adblock-text">For a better experience, use an ad-blocker like <strong>uBlock Origin</strong></span>
       </div>
-      
+
       <div className={`player-container ${interactionEnabled ? 'interactive' : ''}`}>
         <iframe
           src={streamUrl}
@@ -99,28 +87,28 @@ function Player() {
         />
         {/* Blocker overlay - prevents clicks when not in interactive mode */}
         {!interactionEnabled && <div className="iframe-blocker" />}
-        
+
         <div className="player-controls">
-          <button 
+          <button
             className={`toggle-interaction ${interactionEnabled ? 'active' : ''}`}
             onClick={() => setInteractionEnabled(!interactionEnabled)}
           >
             {interactionEnabled ? '🔓 INTERACTION ON (click to lock)' : '🔒 UNLOCK TO UNMUTE'}
           </button>
-          
-          <a 
-            href={streamUrl} 
-            target="_blank" 
+
+          <a
+            href={streamUrl}
+            target="_blank"
             rel="noopener"
             className="open-external-btn"
           >
             ↗ NEW TAB
           </a>
         </div>
-        
+
         {!interactionEnabled && (
           <div className="blocked-notice">
-            <span>🛡️ Protected mode - Click "UNLOCK" to interact with player</span>
+            <span> Protected mode - Click "UNLOCK" to interact with player</span>
           </div>
         )}
       </div>

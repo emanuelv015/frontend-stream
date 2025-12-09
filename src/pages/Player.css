@@ -78,7 +78,7 @@
   background: rgba(255, 59, 48, 0.2);
   border: 1px solid rgba(255, 59, 48, 0.5);
   border-radius: 100px;
-  color: #ff3b30;
+  color: #cfff11;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -93,8 +93,17 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.3); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
 }
 
 .stream-url-bar {
@@ -146,6 +155,33 @@
 .copy-btn:hover {
   background: #fff;
 }
+
+/* Ad-Block Notice Styling */
+.adblock-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(201, 255, 0, 0.1);
+  border-bottom: 1px solid rgba(201, 255, 0, 0.3);
+  font-size: 0.8rem;
+}
+
+.adblock-icon {
+  font-size: 1rem;
+}
+
+.adblock-text {
+  color: #fff;
+}
+
+.adblock-text strong {
+  color: #c9ff00;
+  font-weight: 700;
+}
+
+
 
 .player-container {
   flex: 1;
@@ -237,7 +273,7 @@
 }
 
 .blocked-notice span {
-  color: #c9ff00;
+  color: #bcd36b;
   font-size: 0.8rem;
   font-weight: 500;
 }
@@ -319,5 +355,24 @@
   .player-logo strong {
     display: none;
   }
-}
 
+  .adblock-notice {
+    margin: 1rem;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .adblock-icon {
+    font-size: 2.5rem;
+  }
+
+  .adblock-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .adblock-content p {
+    font-size: 0.85rem;
+  }
+}
